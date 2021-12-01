@@ -1,0 +1,14 @@
+{
+    "tests": [
+      {
+        "name": "demotest-01",
+        "setup": "",
+        "run": "echo hello world!",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 5
+      }
+    ]
+  }
