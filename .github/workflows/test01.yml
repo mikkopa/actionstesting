@@ -17,6 +17,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      TASK_ID: 21s-10
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -62,9 +64,9 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@8e939c608aea2d5df19da3e8229cf035f7aa9e4c #master
         with:
-          url: "https://sav-mik-autograding.azurewebsites.net/api/Autograding"
+          url: "https://sav-mik-autograding.azurewebsites.net/api/autograding/${{env.TASK_ID}}"
           customHeaders: '{"x-functions-key": "${{ secrets.AUTOGRADING_API_KEY }}"}'
-          data: '{"user": "${{github.repository_owner}}","points": "${{steps.autograder.outputs.Points}}","hashes": "${{steps.hashes.outputs.hash}}","repo": "${{github.repository}}","commit": "${{github.sha}}","task": "10","actor": "${{github.actor}}"}'
+          data: '{"user": "${{github.repository_owner}}","points": "${{steps.autograder.outputs.Points}}","hashes": "${{steps.hashes.outputs.hash}}","repo": "${{github.repository}}","commit": "${{github.sha}}","task": "${{env.TASK_ID}}","actor": "${{github.actor}}"}'
       - name: Show Response
         run: echo ${{ steps.myRequest.outputs.response }}
 
