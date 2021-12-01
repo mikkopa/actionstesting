@@ -50,4 +50,4 @@ jobs:
             .github/workflows
             .github/classroom
 
-      - run echo hashes ${{steps.hashes.outputs}}
+      - run: echo hashes ${{steps.hashes.outputs}}
