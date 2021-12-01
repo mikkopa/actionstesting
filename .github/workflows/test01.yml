@@ -42,7 +42,7 @@ jobs:
           ls -l -R ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       
-      - name: get hashes for .github folders
+      - name: get hashes for .github  folders
         uses: theowenyoung/folder-hash@dbee806babae73233242b3b50270e96ad1b46fd7 #v2.0.1
         id: hashes
         with:
